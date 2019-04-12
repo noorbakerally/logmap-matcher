@@ -1,0 +1,1 @@
+mvn install:install-file -Dfile=target/logmap-matcher-3.0.jar  -DgroupId=uk.ox.logmap  -DartifactId=logmap-matcher  -Dversion=3.0  -Dpackaging=jar -DgeneratePom=true

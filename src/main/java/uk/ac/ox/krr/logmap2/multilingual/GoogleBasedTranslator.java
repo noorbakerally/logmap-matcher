@@ -7,7 +7,6 @@ import uk.ac.ox.krr.logmap2.Parameters;
 import uk.ac.ox.krr.logmap2.io.LogOutput;
 
 import com.google.api.GoogleAPI;
-import com.google.api.GoogleAPIException;
 import com.google.api.translate.Language;
 import com.google.api.translate.Translate;
 
@@ -74,7 +73,7 @@ public class GoogleBasedTranslator extends Translator{
 
 
 
-	private String getGoogleTranslation(String text, String originLangStr, String targetLangStr) throws GoogleAPIException {
+	private String getGoogleTranslation(String text, String originLangStr, String targetLangStr)  {
 		
 		if (text.equals("") || text.equals(" ")) //avoid empty text
 			return "";
@@ -92,7 +91,7 @@ public class GoogleBasedTranslator extends Translator{
 			//GoogleAPI.setKey("AIzaSyALd_XsjljQ0U0n8SB_3q6Iocc8kPeLsCo"); //api yuan gong
 			GoogleAPI.setHttpReferrer("https://code.google.com/p/logmap-matcher/");
 			//GoogleAPI.setKey("AIzaSyCXIH0M0Ya4WpnbHYIqNrRC4wXOqtszQuU"); //university of oxford api, max 100,000. Old key
-			GoogleAPI.setKey("AIzaSyCOXm6fqYcqJtpFSrlMsgAy1VPkgNcrD2k"); //New key
+			//GoogleAPI.setKey("AIzaSyCOXm6fqYcqJtpFSrlMsgAy1VPkgNcrD2k"); //New key
 			
 			
 			Language originLang = LanguageMap.get(originLangStr);
@@ -106,7 +105,7 @@ public class GoogleBasedTranslator extends Translator{
 			//Google call
 			if (!Parameters.is_test_mode_multilingual){
 				try{
-					translatedText = Translate.DEFAULT.execute(text, originLang, targetLang);
+					//translatedText = Translate.DEFAULT.execute(text, originLang, targetLang);
 				}
 				catch (Exception e){
 					LogOutput.printError("Error Translating: '" + text + "' from " + originLangStr + " to " + targetLangStr + " using Google API. " + e.getMessage());

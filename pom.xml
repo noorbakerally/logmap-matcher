@@ -152,7 +152,7 @@
 <dependency>
     <groupId>com.googlecode</groupId>
     <artifactId>google-api-translate-java</artifactId>
-    <version>0.97</version>
+    <version>0.92</version>
     <!--scope>system</scope>
     <systemPath>${basedir}/lib/google-api-translate-java-0.97.jar</systemPath-->
 </dependency>
